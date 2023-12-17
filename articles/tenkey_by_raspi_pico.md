@@ -17,12 +17,12 @@ published: true
 *写真2*
 裏側から見たのがこれです。基盤の一階部分と二階部分のスペースが少ないのでラズパイピコを裏側に実装しています。
 一階部分と二階部分は下の写真のようなヘッダーでつなぎます。これはたぶん、型番がPSS-410256-00というピンヘッダーだと思います。このヘッダーを使う部分だけ切って使ってます。
-<!-- ![](https://storage.googleapis.com/zenn-user-upload/48209339760a-20230914.png) -->
-![](/images/photo.jpg)
+![](https://storage.googleapis.com/zenn-user-upload/48209339760a-20230914.png)
 
 *写真3*
 横から見たところはこんな感じです。
-![](https://storage.googleapis.com/zenn-user-upload/f80d25b5933b-20230914.jpg)
+<!-- ![](https://storage.googleapis.com/zenn-user-upload/f80d25b5933b-20230914.jpg) -->
+![](/images/photo.jpg)
 *写真4*
 ピンヘッダーの足が6mmあるので二階と一階をこのようにつなぐことができます。強度補強のため基盤の四隅に六角スタンドオフを付けていますが、このスタンドオフは自宅に転がっていたものを使いました。長さは6.5mmでM3のねじが付いているものです。長さは5mmでも大丈夫だと思います。
 # 回路図
