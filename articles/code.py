@@ -1,7 +1,6 @@
 import board
 import digitalio
 import usb_hid
-import time
 
 from adafruit_hid.keyboard import Keyboard
 from adafruit_hid.keycode import Keycode
@@ -79,23 +78,28 @@ CHATTERING_PREVENT_NUM = 100
 def decode_key(rowValue, column):
     if ((rowValue == 1) and (column == 2)) or (rowValue == 0):
         if column == 2:
-            counter[15] = 0
-            counter[16] = 0
-            counter[17] = 0
-        for keyNo in range(column, 15, 3):
-            counter[keyNo] = 0
+            for keyNo in range(15, 18, 1):
+                if counter[keyNo] >= 1:
+                    counter[keyNo] -= 1
+                if counter[keyNo] == 1:
+                    kbd.release(keycode[keyNo])
+            for keyNo in range(2, 15, 3):
+                if counter[keyNo] >= 1:
+                    counter[keyNo] -= 1
+                if counter[keyNo] == 1:
+                    kbd.release(keycode[keyNo])
+        else:
+            for keyNo in range(column, 15, 3):
+                if counter[keyNo] >= 1:
+                    counter[keyNo] -= 1
+                if counter[keyNo] == 1:
+                    kbd.release(keycode[keyNo])
     else:
         keyNo = get_keyNo(rowValue, column)
         if counter[keyNo] <= CHATTERING_PREVENT_NUM:
             counter[keyNo] += 1
         if counter[keyNo] == CHATTERING_PREVENT_NUM:
-            if keyNo != PADSHIFT:
-                if keyNo == NUMLOCK:
-                    kbd.press(keycode[keyNo])
-                    time.sleep(.09)
-                    kbd.release(keycode[keyNo])
-                else:
-                    kbd.send(keycode[keyNo])
+            kbd.press(keycode[keyNo])
 
 def define_input_pin(boardpin):
     inpin = digitalio.DigitalInOut(boardpin)
