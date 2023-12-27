@@ -75,31 +75,39 @@ def get_keyNo(rowValue, column):
 counter = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 CHATTERING_PREVENT_NUM = 100
+HALF_OF_CHATNUM = 50
+
+def key_release(keyNo):
+    if counter[keyNo] == CHATTERING_PREVENT_NUM:
+        counter[keyNo] = HALF_OF_CHATNUM
+    if counter[keyNo] >= 1:
+        counter[keyNo] -= 1
+    if counter[keyNo] == 1:
+        kbd.release(keycode[keyNo])
+
+
+def key_press(keyNo):
+    if counter[keyNo] == 0:
+        counter[keyNo] = HALF_OF_CHATNUM
+    if counter[keyNo] <= CHATTERING_PREVENT_NUM:
+        counter[keyNo] += 1
+    if counter[keyNo] == CHATTERING_PREVENT_NUM:
+        kbd.press(keycode[keyNo])
+
+
 def decode_key(rowValue, column):
     if ((rowValue == 1) and (column == 2)) or (rowValue == 0):
         if column == 2:
             for keyNo in range(15, 18, 1):
-                if counter[keyNo] >= 1:
-                    counter[keyNo] -= 1
-                if counter[keyNo] == 1:
-                    kbd.release(keycode[keyNo])
-            for keyNo in range(2, 15, 3):
-                if counter[keyNo] >= 1:
-                    counter[keyNo] -= 1
-                if counter[keyNo] == 1:
-                    kbd.release(keycode[keyNo])
+                key_release(keyNo)
+            for keyNo in range(5, 15, 3):
+                key_release(keyNo)
         else:
             for keyNo in range(column, 15, 3):
-                if counter[keyNo] >= 1:
-                    counter[keyNo] -= 1
-                if counter[keyNo] == 1:
-                    kbd.release(keycode[keyNo])
+                key_release(keyNo)
     else:
         keyNo = get_keyNo(rowValue, column)
-        if counter[keyNo] <= CHATTERING_PREVENT_NUM:
-            counter[keyNo] += 1
-        if counter[keyNo] == CHATTERING_PREVENT_NUM:
-            kbd.press(keycode[keyNo])
+        key_press(keyNo)
 
 def define_input_pin(boardpin):
     inpin = digitalio.DigitalInOut(boardpin)
