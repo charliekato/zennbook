@@ -23,7 +23,7 @@ def gp_output(value1, value2, value3):
 # swout1, swout2, swout3
 def rotate_output():
     global loopCounter
-    increment_counter()
+    increment_loopCounter()
     if loopCounter == 0:
         gp_output(0, 1, 1)
     if loopCounter == 10:
@@ -31,7 +31,7 @@ def rotate_output():
     if loopCounter == 20:
         gp_output(1, 1, 0)
 
-def increment_counter():
+def increment_loopCounter():
     global loopCounter
     loopCounter += 1
     if loopCounter == 30:
@@ -71,27 +71,26 @@ def get_keyNo(rowValue, column):
     if rowValue == 3:
         return ENTER
 
-
-counter = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+chattering_prevention_counter = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 CHATTERING_PREVENT_NUM = 100
 HALF_OF_CHATNUM = 50
 
 def key_release(keyNo):
-    if counter[keyNo] == CHATTERING_PREVENT_NUM:
-        counter[keyNo] = HALF_OF_CHATNUM
-    if counter[keyNo] >= 1:
-        counter[keyNo] -= 1
-    if counter[keyNo] == 1:
+    if chattering_prevention_counter[keyNo] == CHATTERING_PREVENT_NUM:
+        chattering_prevention_counter[keyNo] = HALF_OF_CHATNUM
+    if chattering_prevention_counter[keyNo] >= 1:
+        chattering_prevention_counter[keyNo] -= 1
+    if chattering_prevention_counter[keyNo] == 1:
         kbd.release(keycode[keyNo])
 
 
 def key_press(keyNo):
-    if counter[keyNo] == 0:
-        counter[keyNo] = HALF_OF_CHATNUM
-    if counter[keyNo] <= CHATTERING_PREVENT_NUM:
-        counter[keyNo] += 1
-    if counter[keyNo] == CHATTERING_PREVENT_NUM:
+    if chattering_prevention_counter[keyNo] == 0:
+        chattering_prevention_counter[keyNo] = HALF_OF_CHATNUM
+    if chattering_prevention_counter[keyNo] <= CHATTERING_PREVENT_NUM:
+        chattering_prevention_counter[keyNo] += 1
+    if chattering_prevention_counter[keyNo] == CHATTERING_PREVENT_NUM:
         kbd.press(keycode[keyNo])
 
 
