@@ -81,7 +81,10 @@ EXIT;
 
 
 ## 郵便番号databaseの作成
-MariaDBをインストールしたら次には郵便番号データベースの作成です。これはまず郵便局のサイトから郵便番号のcsvをダウンロードしてきます。これもWebで"郵便番号" "CSV" "ダウンロード"で検索すればすぐに出てきます。
+MariaDBをインストールしたら次には郵便番号データベースの作成です。これはまず郵便局のサイトから郵便番号のcsvをダウンロードしてきます。これもWebで"郵便番号" "CSV" "ダウンロード"で検索すればすぐに出てきます。もし出てこないのでしたら[こちら](https://www.post.japanpost.jp/zipcode/dl/utf-zip.html)です。wgetを使ってダウンロードするのでしたら、
+```bash
+wget https://www.post.japanpost.jp/zipcode/dl/utf/zip/utf_ken_all.zip
+```
 次にダウンロードしてきたcsvを読込データベースを作成します。これについてもWeb で"郵便番号" "mysql""データベース"で検索すればでてきます。出てこない場合は、[ここ](https://qiita.com/kesuzuki/items/6d6c89a876d7b8ea820c)を見てください。
 以下は上のQittaの記事からコピペして作ったコードです。
 ```sql
