@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+<title>郵便番号検索</title>
+</head>
+<body>
+    <h1>住所から郵便番号を調べる</h1>
+    <form name="myform" action="/cgi-bin/zipcode/get_zipcode.pl"  method="post">
+	<table> <tr><td class="sidet">
+	    <label for="pref">県名：</label>
+	</td><td>
+	    <input type="text" name="pref" required>
+	</td></tr>
+	<tr><td>
+	    <label for="city">市：</label>
+	</td> <td>
+	    <input type="text" name="city" required>
+	</td></tr>
+	<tr><td>
+	    <label for="street">町名：</label>
+	</td> <td>
+	    <input type="text" name="street" required> 
+	</td></tr>
+		</table>
+	        <input type="submit" id="submit" value="検索" >
+    </form>
+
+</body>
+</html>
+
