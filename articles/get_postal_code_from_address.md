@@ -2,7 +2,7 @@
 title: "住所から郵便番号を取得するサイトを作ってみた"
 emoji: "✨"
 type: "idea" # tech: 技術記事 / idea: アイデア
-topics: [html, perl, cgi]
+topics: [html, perl, cgi, mysql]
 published: true
 ---
 ## はじめに
