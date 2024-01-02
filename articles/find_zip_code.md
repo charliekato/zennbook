@@ -12,7 +12,7 @@ published: true
 *スクリーンショット*
 # データベース作成
 ## 郵便番号csvのダウンロード
-データベースにはaccess, sqlserverや、mysqlなどありますが、エクセルならたいていの方が持っているのでエクセルにしました。エクセルなら比較的簡単にデータベースを作れると思います。データベースを作るのも面倒もしくは、エクセルアプリそのものをお持ちでない方は[こちら](/articles/findZipCode/zipcode.xlsx)にいれてあるのでそこからダウンロードしてお使いください。
+データベースにはaccess, sqlserverや、mysqlなどありますが、エクセルならたいていの方が持っているのでエクセルにしました。エクセルなら比較的簡単にデータベースを作れると思います。データベースを作るのも面倒もしくは、エクセルアプリそのものをお持ちでない方は[こちらのgithub](https://github.com/charliekato/zennbook/tree/main/articles/findZipCode/zipcode.xlsx)からダウンロードしてお使いください。
 データは郵便局のホームページからutf_ken_all.csv をダウンロードしてきます。「郵便番号データダウンロード」でググってもらえばすぐに出てくるはずです。住所の郵便番号（1レコード1行、UTF-8形式）（CSV形式）のところをクリックしてzip形式のファイルをダウンロードします。
 ファイルはUTF-8なのでsjisに変換する必要があります。windowsでutf-8をsjisに変換する方法はChatGPTに聞いてみてください。以下は私が聞いた結果です。(注意: 私自身はこの方法ではやっていませんので)
 ## UTF-8をsjisに変換
@@ -48,7 +48,7 @@ iconv -f UTF-8 -t SHIFT_JIS "C:\path\to\your\utf8file.txt" > "C:\path\to\your\sj
 ![](/images/findZipCode/prefNo.jpg =360x)
 出来たexcelファイルはzipcode.xlsxという名前で実行ファイル(findZipCode.exe)とおなじフォルダーに入れておく必要があります。
 # プログラム本体
-データベースができたのでプログラムです。プログラムはvisual studioで作りましたが、visual studioからプログラムのリリースをどうやるのかわからいので(すいません。)できたソースコードを一つのファイルにまとめました。[ここ](/articles/findZipCode/findZipCode.cs)からダウンロードできます。以下にもコードを載せます。プログラムの説明は割愛させていただきます。csc でコンパイルできますが、実行ファイルが必要な方は[こちら](/articles/findZipCode/findZipCode.exe)からダウンロードしてください。
+データベースができたのでプログラムです。プログラムはvisual studioで作りましたが、visual studioからプログラムのリリースをどうやるのかわからいので(すいません。)できたソースコードを一つのファイルにまとめました。[ここ](https://github.com/charliekato/zennbook/tree/main/articles/findZipCode/findZipCode.cs)からダウンロードできます。以下にもコードを載せます。プログラムの説明は割愛させていただきます。csc でコンパイルできますが、実行ファイルが必要な方は[こちら](https://github.com/charliekato/zennbook/tree/main/articles/findZipCode/findZipCode.exe)からダウンロードしてください。
 ```c#
 
 using System;
