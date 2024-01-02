@@ -12,52 +12,17 @@ namespace findZipCode
     {
         private const string magicWord = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=";
         private const string magicTail = ";Extended Properties='Excel 12.0; HDR=Yes'";
-        public string excelFile;
+	public const string excelFile = "zipcode.xlsx";
         public string city;
         public string pref;
         public string street;
          public Form1()
         {
             InitializeComponent();
-            excelFile = get_excel_file("findZipCode.ini");
             get_pref_list();
             myinit();
         }
-        private string get_excel_file(string filename)
-        {
-            string excelFileName = null;
-            try
-            {
-                if (File.Exists(filename))
-                {
-                    string[] lines = File.ReadAllLines(filename);
-                    foreach (var line in lines)
-                    {
-                        // 行が # で始まっていないか確認
-                        if (!line.StartsWith("#"))
-                        {
-                            // EXCELFILE> が含まれている行を探す
-                            if (line.StartsWith("EXCELFILE>"))
-                            {
-                                // 文字列から不要な部分を除去して、excelFileName に割り当てる
-                                excelFileName = line.Replace("EXCELFILE>", "").Trim();
-                                break;  // 見つけたらループを終了
-                            }
-                        }
-                    }
-                    if (string.IsNullOrEmpty(excelFileName))
-                    {
-                        MessageBox.Show("Error !! content of your " + filename + " is invalid. ");
-
-                    }
-                }
-
-            } catch {
-                MessageBox.Show("Error!!");
-            }
-            return excelFileName;
-
-        }
+       
         private void myinit()
         {
             lbxCity.SelectionMode = SelectionMode.One;
