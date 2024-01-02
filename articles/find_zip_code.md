@@ -374,4 +374,4 @@ findZipCode.ini という名前の設定ファイルが必要です。データ�
 EXCELFILE>C:\\Users\\ykato\\OneDrive\\zipcode.xlsx
 ```
 "#"で始まる行はコメントで無視されます。EXCELFILE> に続けてエクセルファイルの場所を指定します。バックスラッシュは必ず二個続ける必要があります。
-
+iniファイルはexeファイルと同じフォルダーに入れておく必要があります。
