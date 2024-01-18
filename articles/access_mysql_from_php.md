@@ -3,7 +3,7 @@ title: "PHPからMysqlへアクセス"
 emoji: "🦁"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [php, mysql]
-published: false
+published: true
 ---
 # はじめに
 PHPからMysqlへのアクセス方法がわかったので自分用メモを兼ねここに概要を残します。
