@@ -2,7 +2,7 @@
 title: "郵便番号検索ツールをc#で作ってみた"
 emoji: "😸"
 type: "idea" # tech: 技術記事 / idea: アイデア
-topics: [csharp, ADO]
+topics: [csharp, ADO, zipcode, visualstudio]
 published: true
 ---
 # はじめに
@@ -64,7 +64,9 @@ Visual Studioは個人の利用なら無償で利用できるのでMicrosoftのw
 ![](/images/findZipCode/vsScreen.jpg =800x)
 ここで上のメニューの「表示」-> 「ソリューションエクスプローラー(P)」を選択しソリューションエクスプローラーを表示させます。下のような画面が立ち上がります。
 ![](/images/findZipCode/solutionExplorer.jpg =300x)
-これを見ると Form1.cs やProgram.cs などが自動で作られているのがわかります。Program.csは修正せずにそのまま使います。 Fomr1.csを変更するのですが、次の手順でやります。ソリューションエクスプローラーのForm1.csを右クリックします。 下のようにポップアップが現れます。
+これを見ると Form1.cs やProgram.cs などが自動で作られているのがわかります。Program.csは修正せずにそのまま使います。
+## Form.cs の変更
+Fomr1.csを変更するのですが、次の手順でやります。ソリューションエクスプローラーのForm1.csを右クリックします。 下のようにポップアップが現れます。
 ![](/images/findZipCode/dispCode.jpg =350x)
 ここで「コードの表示(D)」を選びForm1.csの編集画面を表示させます。この20行のコードをすべて削除し、下のコードを削除した後にコピペします。
 ここで注意するのはプロジェクトの名前をfindZipCodeにしていない人はこの6行目のnamespace findZipCode のfindZipCodeをプロジェクトの名前と同じにすることです。
@@ -195,6 +197,7 @@ namespace findZipCode
 
 ```
 
+## Form1.Designer.csの変更
 次にソリューションエクスプローラーのForm1.csの左側の三角マークをクリックしてForm1.csを展開します。すると下の図のようにForm1.Designer.cs が現れるのでこれをダブルクリックして編集画面を表示させます。下に様な画面になります。
 ![](/images/findZipCode/designer.cs.jpg =900x)
 このForm1.Designer.csというのは最初の画面に出ていた Form1.cs[デザイン](Windows フォームデザイナーと呼ばれています) のフォームにツールボックスの部品を並べてGUIのフォームを作ると自動でできるものですが、今回はできているものをコピペします。ですのででてきたコードはすべて削除し、そのあとに以下のコードを貼り付けます。
@@ -348,6 +351,7 @@ namespace findZipCode
 以上で完成ですが、念のため本来手でGUI部品(ボタンとかラベルなど)を配置して作っていくフォームがどうなっているか見てみます。ソリューションエクスプローラーのForm1.csを右クリックして今度はデザイナーの表示(D)を選び(下の図参照)フォームデザイナーを表示させます。
 ![](/images/findZipCode/formDesigner.jpg =300x)
 ここで下の様になっていれば以上の操作がうまくいったということです。
+## プログラムのコンパイル(ビルド)
 ![](/images/findZipCode/form1.jpg =900x)
 プログラムはできたのでコンパイルをします。うえのメニューから「ビルド」-> 「ソリューションのビルド」を選びます。下の図参照。
 
