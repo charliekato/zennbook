@@ -8,7 +8,8 @@ published: true
 # はじめに
 セイコーリザルトシステムVer 6. の賞状印刷システムはexcelの差込印刷と同じ手法を使っていますが文字の位置決めが きわめて面倒で使いにくいためPowerPointを使って同様に差し込み印刷の手法をVBAで実現しました。
 PowerPointで賞状原紙の画像を背景にしておき文字の位置決めを行うのでとても便利です。
-![](/images/print_certificate_by_ppt/screen_shot.png =600x)
+---  insert =600x for zenn---
+![](/images/print_certificate_by_ppt/screen_shot.png )
 # 概要
 原理はいたって簡単です。PowerPointで印刷したい場所にtextBoxを配置してそのtextBoxにセイコーのリザルトシステムが使っているSQL ServerのDBから必要な情報を取ってきて差し込み印刷を行うだけです。操作の概要は以下の通りです。
 1. 賞状は通常縦長なのでPowerPointの規定値とは異なるためスライドのサイズの変更をしておきます。
@@ -41,14 +42,14 @@ PowerPointで賞状原紙の画像を背景にしておき文字の位置決め�
 名前は、ホームタブ->編集->選択->オブジェクトの選択と表示　でつけることができます。     
 
 8. 開発タブ->マクロでマクロを表示し、賞状印刷を選択しマクロを実行します。
-![](/images/print_certificate_by_ppt/screen_shot2.png =600x)
+![](/images/print_certificate_by_ppt/screen_shot2.png )
 
 9. サーバー選択画面が出てくるのでサーバー名を入力しOKボタンを押します。(リザルトシステムV6と同じ操作方法です。)
-![](/images/print_certificate_by_ppt/screen_shot3.png =600x)
+![](/images/print_certificate_by_ppt/screen_shot3.png )
 10. 大会名が出てくるので、該当する大会名を選択し、OKボタンを押します。
-![](/images/print_certificate_by_ppt/screen_shot4.png =600x)
+![](/images/print_certificate_by_ppt/screen_shot4.png )
 11. 競技名が出てくるので該当する競技を選択し、順位の指定等をして「印刷」ボタンを押せば印刷できます。
-![](/images/print_certificate_by_ppt/screen_shot5.png =600x)
+![](/images/print_certificate_by_ppt/screen_shot5.png )
 12. 印刷せずにプレビューだけする場合は「プレビュー」ボタンを押せば印刷されません。
 13. 印刷の設定(プリンターの選択等)は通常のPowerPointの操作で事前に行っておきます。
 
